@@ -3,6 +3,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    public: {
+      firebaseApiKey: "",
+      firebaseAuthDomain: "",
+      firebaseProjectId: "",
+      firebaseStorageBucket: "",
+      firebaseMessagingSenderId: "",
+      firebaseAppId: "",
+      firebaseMeasurementId: "",
+    }
+  },
+
   typescript: {
     typeCheck: true,
     strict: true,
@@ -18,7 +30,12 @@ export default defineNuxtConfig({
     // editorSupport: { autocompleteUtil: { as: 'tailwindClasses' } }
   },
 
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@nuxtjs/color-mode',
+  ],
+
   shadcn: {
     /**
      * Prefix for all the imported component
