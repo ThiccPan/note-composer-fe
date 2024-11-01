@@ -44,10 +44,14 @@ const onSubmit = handleSubmit(async (values) => {
       .catch(error => {
         toast({
           variant: "destructive",
-          title: 'failed to get data',
+          title: 'failed to add tags',
           description: error,
         });
       })
+    toast({
+      variant: "default",
+      title: 'adding tags successfull',
+    });
     emit('tag-added')
   }
 })

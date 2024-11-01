@@ -55,7 +55,6 @@ const getBlurb = (text: string) => {
     <CardHeader>
       <CardTitle>{{ note.title }}</CardTitle>
       <CardDescription>
-        {{ note  }}
         <template
           v-for="tag in note.tagsId"
           class=" flex flex-row"
