@@ -13,12 +13,13 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     console.log('on client')
   }
 
-  let a = await getValidatedUser()
+  let a = await getValidatedUser().catch((error) => console.log(error))
+  console.log('validated user is:', a)
   if (!a) {
     console.log('not authenticated')
     return navigateTo('/login')
-  } else {
-    console.log('user is:', a)
-    return
+    
   }
+  console.log('user is:', a)
+  return
 })
