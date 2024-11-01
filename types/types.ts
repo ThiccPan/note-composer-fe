@@ -2,7 +2,7 @@ export type Note = {
   id: string,
   title: string,
   content: string,
-  tags: string[],
+  tagsId: string[],
   createdAt: Date,
   updatedAt: Date
 }
