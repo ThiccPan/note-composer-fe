@@ -2,7 +2,7 @@ import type { addNoteType, updateNoteType } from "~/types/NoteDTO"
 import type { Note } from "~/types/types"
 
 const config = useRuntimeConfig()
-const url = config.public.backendServiceUrl
+const url = `${config.public.backendServiceUrl}/v1`
 
 const fetchNotesReq = async (reqData: {
   token: string

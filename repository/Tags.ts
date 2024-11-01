@@ -2,7 +2,7 @@ import type { addTagsType } from "~/types/TagsDTO"
 import type { Tag } from "~/types/types"
 
 const config = useRuntimeConfig()
-const url = config.public.backendServiceUrl
+const url = `${config.public.backendServiceUrl}/v1`
 
 export const fetchTagReq = async (queryConfig: {
   token: string
