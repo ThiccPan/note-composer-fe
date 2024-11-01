@@ -13,6 +13,7 @@ export default defineNuxtConfig({
       firebaseMessagingSenderId: "",
       firebaseAppId: "",
       firebaseMeasurementId: "",
+      backendServiceUrl: "",
     }
   },
 

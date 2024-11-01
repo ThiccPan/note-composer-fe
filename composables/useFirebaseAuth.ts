@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile, type Auth, type User } from "firebase/auth"
 
-const url = `http://localhost:8000/v1`
+const config = useRuntimeConfig()
+const url = config.public.backendServiceUrl
 
 export default function () {
   const app = useNuxtApp()

@@ -1,7 +1,8 @@
 import type { addNoteType, updateNoteType } from "~/types/NoteDTO"
 import type { Note } from "~/types/types"
 
-const url = "http://localhost:8000/v1"
+const config = useRuntimeConfig()
+const url = config.public.backendServiceUrl
 
 const fetchNotesReq = async (reqData: {
   token: string
