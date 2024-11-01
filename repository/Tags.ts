@@ -1,7 +1,7 @@
 import type { addTagsType } from "~/types/TagsDTO"
 import type { Tag } from "~/types/types"
 
-const url = "http://localhost:8000/v1/tags"
+const url = "http://localhost:8000/v1"
 
 export const fetchTagReq = async (queryConfig: {
   token: string
@@ -9,7 +9,7 @@ export const fetchTagReq = async (queryConfig: {
   const { data, error } = await useFetch<{
     message: string,
     data: Tag[]
-  }>(url, {
+  }>(`${url}/tags`, {
     method: "get",
     headers: {
       'Authorization': queryConfig.token
@@ -21,7 +21,7 @@ export const fetchTagReq = async (queryConfig: {
     throw createError({
       ...error.value,
       message: data.value?.message,
-      statusMessage: `Could not fetch data from ${url}`,
+      statusMessage: `Could not fetch data from ${url}/tags`,
     })
   }
   return data
@@ -33,7 +33,7 @@ export const addTagReq = async (reqData: {
 }) => {
   const { data, error } = await useFetch<{
     message: string,
-  }>(url, {
+  }>(`${url}/tags`, {
     method: "post",
     headers: {
       'Authorization': reqData.token
@@ -48,7 +48,7 @@ export const addTagReq = async (reqData: {
     throw createError({
       ...error.value,
       message: data.value?.message,
-      statusMessage: `Could not save data from ${url}`,
+      statusMessage: `Could not save data from ${url}/tags`,
     })
   }
   return data
@@ -60,7 +60,7 @@ export const deleteTagReq = async (reqData: {
 }) => {
   const { data, error } = await useFetch<{
     message: string,
-  }>(`${url}/${reqData.tag}`, {
+  }>(`${url}/tags/${reqData.tag}`, {
     method: "delete",
     headers: {
       'Authorization': reqData.token
@@ -71,7 +71,7 @@ export const deleteTagReq = async (reqData: {
     throw createError({
       ...error.value,
       message: data.value?.message,
-      statusMessage: `Could not delete data from ${url}/${reqData.tag}`,
+      statusMessage: `Could not delete data from ${url}/tags/${reqData.tag}`,
     })
   }
   return data
